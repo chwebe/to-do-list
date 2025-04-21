@@ -1,133 +1,112 @@
-# Webpack Template
+# Todo List Application
 
-A modern webpack template for JavaScript projects with SCSS support.
-
-## Features
-
-- 📦 Webpack 5
-- 🔥 Hot Module Replacement
-- 🎨 SCSS support
-- 📱 Production optimization
-- 🎯 Asset management
-- 🛠 Babel configuration
-- ✨ ESLint for code quality
-
-## Getting Started
-
-### Prerequisites
-
-- Node.js (v14 or higher)
-- npm
-
-### Installation
-
-1. Clone this repository:
-```bash
-git clone https://github.com/chwebe/template-webpack
-cd webpack-template
-```
-
-2. Install dependencies using the setup script:
-```bash
-npm run setup
-```
-
-This will install all necessary dependencies including:
-- Webpack and related plugins
-- ESLint for code linting
-- Development server
-
-### Development
-
-Start the development server:
-```bash
-npm start
-```
-
-The application will be available at `http://localhost:3000`.
-
-### Production Build
-
-Create a production build:
-```bash
-npm run build
-```
-
-The build artifacts will be stored in the `dist/` directory.
-
-## Linting
-
-This project uses ESLint to enforce code quality and style consistency. We use the Airbnb base style guide with some custom configurations.
-
-### ESLint Configuration
-
-The ESLint configuration can be found in `.eslintrc.json`:
-- Environment: Browser, ES2021, and Node.js
-- Style Guide: Airbnb base
-- Custom Rules:
-  - `no-console`: Warns on console.log but allows console.warn and console.error
-  - `import/prefer-default-export`: Rule is disabled
-  - `max-len`: Maximum line length of 100 characters
-
-### Available Linting Commands
-
-```bash
-# Check for linting errors
-npm run lint
-
-# Fix automatically fixable issues
-npm run lint:fix
-
-# Check specific file
-npx eslint src/file.js
-
-# Fix specific file
-npx eslint src/file.js --fix
-```
-
-### VS Code Integration
-
-1. Install the ESLint extension for VS Code
-2. Add the following to your VS Code settings for automatic fixing on save:
-```json
-{
-  "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
-  }
-}
-```
-
-### Ignored Files
-
-The following files and directories are ignored by ESLint (configured in `.eslintignore`):
-- `node_modules/`
-- `dist/`
-- `webpack/`
-- `*.config.js`
-
-## Available Scripts
-
-- `npm start` - Starts the development server
-- `npm run build` - Creates a production build
-- `npm run build:dev` - Creates a development build
-- `npm run lint` - Runs ESLint check
-- `npm run lint:fix` - Runs ESLint and fixes issues
+A vanilla JavaScript todo list application built using Object-Oriented Programming (OOP) principles and following the Single Responsibility Principle (SRP) from SOLID design patterns.
 
 ## Project Structure
 
 ```
-webpack-template/
-├── src/                    # Source files
-│   ├── styles/           # Global styles
-│   ├── app.js           # Example module
-│   └── index.js         # Entry point
-├── webpack/              # Webpack configurations
-│   ├── webpack.common.js
-│   ├── webpack.dev.js
-│   └── webpack.prod.js
-└── package.json
+src/
+├── models/           # Data models and business logic
+│   ├── task/        # Task-related models
+│   │   ├── Task.js      # Handles individual task data
+│   │   └── TaskList.js  # Manages collection of tasks
+│   └── project/     # Project-related models
+│       ├── Project.js    # Handles individual project data
+│       └── ProjectList.js # Manages collection of projects
+│
+├── services/        # Services for external operations
+│   ├── TaskStorage.js    # Handles task data persistence
+│   └── ProjectStorage.js # Handles project data persistence
+│
+├── views/           # UI rendering logic
+│   ├── task/       # Task-related views
+│   │   └── TaskView.js  # Manages task DOM manipulation
+│   └── project/    # Project-related views
+│       └── ProjectView.js # Manages project DOM manipulation
+│
+├── handlers/        # Input handling
+│   ├── task/       # Task-related handlers
+│   │   └── TaskFormHandler.js  # Task form processing
+│   └── project/    # Project-related handlers
+│       └── ProjectFormHandler.js # Project form processing
+│
+├── events/          # Event management
+│   └── TaskEventManager.js # Event handling
+│
+└── App.js          # Main application entry point
 ```
 
-## License
+## Class Descriptions
 
-This project is licensed under the MIT License.
+### Models
+- **Task Class**: Represents a single todo item with properties like id, title, description, status, and creation date.
+- **TaskList Class**: Manages the collection of tasks, providing methods for adding, removing, and filtering tasks.
+- **Project Class**: Represents a project that can contain multiple tasks, with properties like id, name, description, and creation date.
+- **ProjectList Class**: Manages the collection of projects, providing methods for adding, removing, and filtering projects.
+
+### Services
+- **TaskStorage Class**: Handles task data persistence using localStorage, including saving and loading tasks.
+- **ProjectStorage Class**: Handles project data persistence using localStorage, including saving and loading projects and their associated tasks.
+
+### Views
+- **TaskView Class**: Responsible for rendering tasks and updating the UI.
+- **ProjectView Class**: Responsible for rendering projects and their associated tasks in the UI.
+
+### Handlers
+- **TaskFormHandler Class**: Manages task form submissions and input validation.
+- **ProjectFormHandler Class**: Manages project form submissions and input validation.
+
+### Events
+- **TaskEventManager Class**: Coordinates event listeners and callbacks throughout the application.
+
+### App
+- **App Class**: Main application class that orchestrates all components.
+
+## Object-Oriented Programming Principles
+
+This project demonstrates the following OOP principles:
+
+1. **Encapsulation**: Each class encapsulates its data and behaviors.
+2. **Single Responsibility**: Each class has one specific purpose.
+3. **Modularity**: Components are independent and interchangeable.
+4. **Clean Architecture**: Clear separation between UI, business logic, and data layers.
+
+## Features
+
+- Create, Read, Update, and Delete (CRUD) tasks
+- Create, Read, Update, and Delete (CRUD) projects
+- Organize tasks within projects
+- Mark tasks as complete/incomplete
+- Persist tasks and projects in localStorage
+- Filter tasks by status and project
+- Clean and intuitive user interface
+
+## Getting Started
+
+1. Clone the repository
+2. Open index.html in your browser
+3. Start managing your projects and tasks!
+
+## Browser Support
+
+- Chrome (latest)
+- Firefox (latest)
+- Safari (latest)
+- Edge (latest)
+
+## Development
+
+To modify or extend the application:
+
+1. Each class is in its own file for easy maintenance
+2. Follow the existing pattern of single responsibility
+3. Maintain separation of concerns
+4. Document any new methods or classes added
+
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch
+3. Commit your changes
+4. Push to the branch
+5. Create a new Pull Request

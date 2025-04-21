@@ -1,6 +1,7 @@
 {
   "name": "webpack-template",
   "version": "1.0.0",
+
   "description": "Modern webpack template for JavaScript",
   "main": "src/index.js",
   "scripts": {
@@ -10,7 +11,8 @@
     "build:dev": "webpack --config webpack/webpack.dev.js",
     "lint": "eslint src --ext .js",
     "lint:fix": "eslint src --ext .js --fix",
-    "clean": "rm -rf dist/"
+    "clean": "rm -rf dist/",
+    "test": "jest"
   },
   "keywords": [
     "webpack",
@@ -24,18 +26,19 @@
     "@babel/preset-env": "^7.23.7",
     "babel-loader": "^9.1.3",
     "clean-webpack-plugin": "^4.0.0",
-    "css-loader": "^6.8.1",
+    "css-loader": "^6.11.0",
     "eslint": "^8.57.1",
     "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-plugin-import": "^2.29.1",
-    "html-webpack-plugin": "^5.6.0",
-    "mini-css-extract-plugin": "^2.7.6",
+    "eslint-plugin-import": "^2.31.0",
+    "html-loader": "^5.1.0",
+    "html-webpack-plugin": "^5.6.3",
+    "mini-css-extract-plugin": "^2.9.2",
     "sass": "^1.69.7",
     "sass-loader": "^13.3.3",
-    "style-loader": "^3.3.3",
-    "webpack": "^5.89.0",
+    "style-loader": "^3.3.4",
+    "webpack": "^5.99.6",
     "webpack-cli": "^5.1.4",
-    "webpack-dev-server": "^4.15.1",
+    "webpack-dev-server": "^4.15.2",
     "webpack-merge": "^5.10.0"
   }
 }
