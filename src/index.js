@@ -1,7 +1,10 @@
 // Example module import
-
 import Task from './models/task/Task';
 import Project from './models/project/Project';
+import ProjectStorage from './services/ProjectStorage';
+
+// Initialize project storage
+const projectStorage = new ProjectStorage();
 
 // 1. Create a new project
 const project = new Project({
@@ -10,67 +13,53 @@ const project = new Project({
   owner: 'John Doe',
 });
 
-// 2. Create some tasks
+const project2 = new Project({
+  name: 'Web Development',
+  description: 'Develop company website',
+  owner: 'Jane Doe',
+});
+
+// 2. Create tasks
 const task1 = new Task({
   title: 'Design Homepage',
   description: 'Create new homepage layout',
   priority: 'high',
-  tags: ['design', 'frontend'],
+  tags: ['design', 'frontend']
 });
 
 const task2 = new Task({
   title: 'Setup Navigation',
   description: 'Implement responsive navigation menu',
   priority: 'medium',
-  tags: ['frontend'],
+  tags: ['frontend']
 });
 
-// 3. Add tasks to the project
+project.addTask(task1);
+project.addTask(task2);
+
+console.log('\nProject before save:', project.toJSON());
+
 try {
-  // Add first task
-  project.addTask(task1);
-  console.log(`Task "${task1.title}" added to project "${project.name}"`);
-  console.log('Current task count:', project.taskCount);
+  // Save project with its tasks
+  projectStorage.saveProject(project);
+  projectStorage.saveProject(project2);
+  console.log('Project and tasks saved successfully');
+  
+  // Verify storage
+  const savedProject = projectStorage.getProject(project.name);
+  console.log('\nProject after save:', savedProject.toJSON());
+  
+  // Update a task
+  task1.status = 'in-progress';
+  projectStorage.saveProject(project);
+  
+  // Verify update
+  const updatedProject = projectStorage.getProject(project.name);
+  console.log('\nProject after task update:', updatedProject.toJSON());
 
-  // Add second task
-  project.addTask(task2);
-  console.log(`Task "${task2.title}" added to project "${project.name}"`);
-  console.log('Current task count:', project.taskCount);
+  // Search for tasks
+  console.log('\nSearch results for "design":', projectStorage.searchTasks('design'));
 
-  // Get all tasks in the project
-  const allTasks = project.getAllTasks();
-  console.log('\nAll tasks in project:');
-  allTasks.forEach((task) => {
-    console.log(`- ${task.title} (${task.priority})`);
-  });
-
-  // Get a specific task
-  const specificTask = project.getTaskById(task1.id);
-  if (specificTask) {
-    console.log('\nFound specific task:', specificTask.title);
-  }
-
-  // Try to add an invalid task (should throw error)
-  project.addTask({ title: 'Invalid Task' });
-} catch (error) {
-  console.error('Error:', error.message);
-}
-
-// 4. Demonstrate task removal
-try {
-  // Remove a task
-  const removed = project.removeTask(task1.id);
-  if (removed) {
-    console.log(`\nTask "${task1.title}" removed from project`);
-    console.log('Remaining task count:', project.taskCount);
-  }
-
-  // Verify task was removed
-  const remainingTasks = project.getAllTasks();
-  console.log('\nRemaining tasks:');
-  remainingTasks.forEach((task) => {
-    console.log(`- ${task.title}`);
-  });
 } catch (error) {
   console.error('Error:', error.message);
 }

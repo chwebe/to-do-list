@@ -54,9 +54,7 @@ class TaskList {
   }
 
   toJSON() {
-    return {
-      tasks: this.#tasks.map((task) => task.toJSON()),
-    };
+    return this.#tasks.map((task) => task.toJSON());
   }
 }
 
