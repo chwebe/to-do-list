@@ -37,8 +37,11 @@ main {
     grid-template-columns: 1fr 4fr;
 }
 
-.sidebar-task  {
-    padding: 0.2rem 0.4rem;
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 0.1rem 0.4rem;
 }
 
 .sidebar-task * {
@@ -51,10 +54,11 @@ main {
     fill: var(--primary);
 }
 
-.sidebar-project button {
+.sidebar-task button, .sidebar-project button {
     border: none;
     background-color: transparent;
     cursor: pointer;
+    padding: 0;
 }
 
 .sidebar-task-button-icon, .sidebar-project-list-item-button-icon {
@@ -68,25 +72,27 @@ main {
     height: 30px;
 }
 
-.task-container {
-    min-height: 100vh;
-    background-color: var(--bg-secondary);
+.sidebar-project {
+    
 }
 
 .sidebar-project-list {
-    padding: 0.2rem 0.4rem;
+    padding: 0;
 }
+
 .sidebar-project-list li {
-    display: flex;
     list-style: none;
 }
+
 .sidebar-project-list svg {
     width: 20px;
     height: 20px;
 }
 
 .sidebar-project-list-item-button {
+    width: 100%;
     display: flex;
+    justify-content: flex-start;
     align-items: center;
     gap: 0.4rem;
 }
@@ -95,6 +101,11 @@ main {
     font-size: 1.0rem;
     color: var(--text-primary);
     font-weight: 600;
+}
+
+.task-container {
+    min-height: 100vh;
+    background-color: var(--bg-secondary);
 }
 
 @media (prefers-color-scheme: dark) {
