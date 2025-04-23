@@ -1,0 +1,105 @@
+:root {
+    /* Light mode defaults */
+    --bg-primary: #ffffff;
+    --bg-secondary: #f5f5f5;
+
+    /* Primary Brand Color - Deep Purple/Blue */
+    --primary: #7c3aed;        /* Vibrant but not harsh violet */
+    --primary-hover: #8b5cf6;  /* Lighter for hover states */
+
+    /* Text Colors */
+    --text-primary: rgba(255, 255, 255, 0.87);    /* Main text */
+    --text-secondary: rgba(255, 255, 255, 0.60);  /* Descriptions */
+    --text-disabled: rgba(255, 255, 255, 0.38);   /* Inactive elements */
+
+    /* Status Colors - For task states */
+    --status-pending: #fbbf24;      /* Amber - Pending tasks */
+    --status-in-progress: #60a5fa;  /* Blue - In-progress tasks */
+    --status-completed: #34d399;    /* Green - Completed tasks */
+    --status-urgent: #f87171;       /* Red - High priority tasks */
+}
+
+[data-theme="dark"] {
+    --bg-primary: #121212;
+    --bg-secondary: rgb(15, 23, 42);
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+}
+
+main {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+}
+
+.sidebar-task  {
+    padding: 0.2rem 0.4rem;
+}
+
+.sidebar-task * {
+    font-size: 1.0rem;
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.sidebar-task svg {
+    fill: var(--primary);
+}
+
+.sidebar-project button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.sidebar-task-button-icon, .sidebar-project-list-item-button-icon {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.sidebar-task-button-icon-svg {
+    width: 30px;
+    height: 30px;
+}
+
+.task-container {
+    min-height: 100vh;
+    background-color: var(--bg-secondary);
+}
+
+.sidebar-project-list {
+    padding: 0.2rem 0.4rem;
+}
+.sidebar-project-list li {
+    display: flex;
+    list-style: none;
+}
+.sidebar-project-list svg {
+    width: 20px;
+    height: 20px;
+}
+
+.sidebar-project-list-item-button {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.sidebar-project-list-item-button-text {
+    font-size: 1.0rem;
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+      --bg-primary: #121212;
+      --bg-secondary: #1e1e1e;
+    }
+}

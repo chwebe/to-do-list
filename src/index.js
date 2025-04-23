@@ -3,6 +3,7 @@ import Task from './models/task/Task';
 import Project from './models/project/Project';
 import ProjectStorage from './services/ProjectStorage';
 
+import './style.css';
 // Initialize project storage
 const projectStorage = new ProjectStorage();
 

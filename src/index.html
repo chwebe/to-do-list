@@ -3,9 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Webpack Template</title>
+    <title>To-Do List</title>
 </head>
 <body>
-    <div id="app"></div>
+    <main>
+        <sidebar>
+            <div class="sidebar-header">
+                <h2>ToDo</h2>
+            </div>
+            <div class="sidebar-task">
+                <button class="sidebar-task-button">
+                    <span class="sidebar-task-button-icon">
+                        <svg class="sidebar-task-button-icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <title>plus-circle</title>
+                            <path d="M17,13H13V17H11V13H7V11H11V7H13V11H17M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z" />
+                        </svg>
+                        Add Task
+                    </span>
+                </button>
+                <div class="sidebar-project">
+                    <h3>My Projects</h3>
+                    <ul class="sidebar-project-list">
+                        <li class="sidebar-project-list-item">
+                            <button class="sidebar-project-list-item-button">
+                                <span class="sidebar-project-list-item-button-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                        <title>folder</title>
+                                        <path d="M10,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V8C22,6.89 21.1,6 20,6H12L10,4Z" />
+                                    </svg>
+                                </span>
+                                <span class="sidebar-project-list-item-button-text">
+                                    Project 1
+                                </span>
+                            </button>
+                        </li>
+                    </ul>
+                    <button class="add-project-button">
+                        + Create a new project
+                    </button>
+                </div>
+            </div>
+        </sidebar>
+        <div class="task-container">
+            <div class="task-header">
+                <h2>Tasks</h2>
+            </div>
+            <div class="task-list"></div>
+        </div>
+
+            
+        
+    </main>
+    
 </body>
 </html> 
