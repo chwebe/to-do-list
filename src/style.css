@@ -72,12 +72,12 @@ main {
     height: 30px;
 }
 
-.sidebar-project {
-    
-}
-
 .sidebar-project-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
     padding: 0;
+
 }
 
 .sidebar-project-list li {
@@ -113,4 +113,14 @@ main {
       --bg-primary: #121212;
       --bg-secondary: #1e1e1e;
     }
+}
+
+.task-header {
+    padding: 1rem;
+}
+
+.task-list-item-checkbox {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
 }
