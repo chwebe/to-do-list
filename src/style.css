@@ -103,17 +103,14 @@ main {
     font-weight: 600;
 }
 
+.add-project-button:hover {
+    color: var(--primary-hover);
+}
+
 .task-container {
     min-height: 100vh;
     background-color: var(--bg-secondary);
     padding: 2rem;
-}
-
-@media (prefers-color-scheme: dark) {
-    :root {
-      --bg-primary: #121212;
-      --bg-secondary: #1e1e1e;
-    }
 }
 
 .task-header {
@@ -149,13 +146,79 @@ main {
     background-color: var(--primary-hover);
 }
 
-.task-list {
+.task-container {
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 1rem;
+}
+
+.task-form, .task-list {
     width: 100%;
     max-width: 800px;
-    margin: 0 auto;
+}
+
+.task-form {
+    display: none;
+    width: 100%;
+    max-width: 800px;
+    flex-direction: column;
+    gap: 1rem;
+    border: 1px solid var(--primary);
+    padding: 1rem;
+    border-radius: 8px;
+    background-color: var(--bg-primary);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.task-form input[type="text"],
+.task-form input[type="date"],
+.task-form textarea,
+.task-form select {
+    padding: 0.75rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+    font-size: 0.95rem;
+    width: 100%;
+    box-sizing: border-box;
+    transition: border-color 0.2s ease;
+}
+
+.task-form input[type="text"]:focus,
+.task-form input[type="date"]:focus,
+.task-form textarea:focus,
+.task-form select:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 2px rgba(124, 58, 237, 0.1);
+}
+
+.task-form textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.task-form select {
+    cursor: pointer;
+}
+
+.task-form button[type="submit"] {
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    align-self: flex-end;
+}
+
+.task-form button[type="submit"]:hover {
+    background-color: var(--primary-hover);
 }
 
 .task-list-item {
@@ -237,6 +300,12 @@ main {
     border-left: 4px solid var(--status-urgent);
 }
 
+@media (prefers-color-scheme: dark) {
+    :root {
+      --bg-primary: #121212;
+      --bg-secondary: #1e1e1e;
+    }
+}
 @media (max-width: 768px) {
     .task-container {
         padding: 1rem;

@@ -2,6 +2,8 @@
 import Task from './models/task/Task';
 import Project from './models/project/Project';
 import ProjectStorage from './services/ProjectStorage';
+import FormView from './views/view';
+import FormHandler from './handlers/FormHandler.js';
 
 import './style.css';
 // Initialize project storage
@@ -64,3 +66,8 @@ try {
 } catch (error) {
   console.error('Error:', error.message);
 }
+
+const formView = new FormView();
+const formHandler = new FormHandler(formView, project);
+formHandler.initForm();
+formHandler.submitForm();

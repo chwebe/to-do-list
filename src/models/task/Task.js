@@ -3,23 +3,14 @@
 class Task {
   // Private fields
   #id;
-
   #title;
-
   #description;
-
   #status;
-
   #createdAt;
-
   #dueDate;
-
   #projectId;
-
   #lastModified;
-
   #priority;
-
   #tags;
 
   // Valid status values
